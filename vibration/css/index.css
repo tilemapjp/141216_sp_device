@@ -1,0 +1,27 @@
+@charset "UTF-8";
+
+#txt {
+	width: 240px;
+	height: 84px;
+	margin: -42px 0 0 -120px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+}
+
+#txt div {
+	float: left;
+	position: relative;
+}
+
+#txt div + div {
+	margin: 0 0 0 5px;
+}
+
+#txt #font_1 {
+	margin-top: 2px;
+}
+
+#txt #font_3 {
+	margin-top: 34px;
+}
