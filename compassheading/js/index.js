@@ -31,7 +31,6 @@
 
     $compass.css({
       "-webkit-transform": "rotateZ(" + direction + "deg)",
-      "-moz-transform": "rotateZ(" + direction + "deg)",
       "transform": "rotateZ(" + direction + "deg)"
     })
   }
