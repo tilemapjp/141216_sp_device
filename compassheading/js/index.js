@@ -27,12 +27,10 @@
     html += "方角 : " + compassHeading;
     $("#debug").html(html);
 
-    var direction = 360 - compassHeading;
-
     $compass.css({
-      "-webkit-transform": "rotateZ(" + direction + "deg)",
-      "-moz-transform": "rotateZ(" + direction + "deg)",
-      "transform": "rotateZ(" + direction + "deg)"
+      "-webkit-transform": "rotateZ(" + compassHeading + "deg)",
+      "-moz-transform": "rotateZ(" + compassHeading + "deg)",
+      "transform": "rotateZ(" + compassHeading + "deg)"
     })
   }
 
