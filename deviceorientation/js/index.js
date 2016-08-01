@@ -1,9 +1,12 @@
 (function () {
 
-  var $zo;
+  //var $zo;
 
   $(function () {
-    $zo = $("#zo");
+    "use strict";
+
+    var viewer = new Cesium.Viewer("cesium");
+    //$zo = $("#zo");
 
     var gn = new GyroNorm();
 
@@ -58,10 +61,10 @@
     html += '方角 : ' + heading + "<br>";
     $("#debug").html(html);
 
-    $zo.css({
-      "-webkit-transform": "rotateX(" + (180 + beta) + "deg) rotateY(" + (180 + gamma) + "deg) rotateZ(" + alpha + "deg)",
-      "transform": "rotateX(" + (180 + beta) + "deg) rotateY(" + (180 + gamma) + "deg) rotateZ(" + alpha + "deg)"
-    })
+    //$zo.css({
+    //  "-webkit-transform": "rotateX(" + (180 + beta) + "deg) rotateY(" + (180 + gamma) + "deg) rotateZ(" + alpha + "deg)",
+    //  "transform": "rotateX(" + (180 + beta) + "deg) rotateY(" + (180 + gamma) + "deg) rotateZ(" + alpha + "deg)"
+    //})
   }
 var degtorad = Math.PI / 180; // Degree-to-Radian conversion
 
