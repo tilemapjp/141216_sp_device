@@ -51,7 +51,7 @@
 
     var heading = compassHeading( alpha, beta, gamma );
 
-    var html = "";
+    var html = "gyronorm<br>";
     html += "X回転 : " + beta + "<br>";
     html += "Y回転 : " + gamma + "<br>";
     html += 'Z回転 : ' + alpha + "<br>";
