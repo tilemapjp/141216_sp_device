@@ -5,7 +5,15 @@
   $(function () {
     "use strict";
 
-    var viewer = new Cesium.Viewer("cesium");
+    var viewer = new Cesium.Viewer("cesium", {
+      timeline : false,
+      animation : false,
+      baseLayerPicker : false,
+      fullscreenButton : false,
+      geocoder : false,
+      homeButton : false,
+      infobox : false
+    });
     //$zo = $("#zo");
 
     var gn = new GyroNorm();
