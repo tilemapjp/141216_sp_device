@@ -12,7 +12,8 @@
       fullscreenButton : false,
       geocoder : false,
       homeButton : false,
-      infobox : false
+      infobox : false,
+      imageryProvider : Cesium.createOpenStreetMapImageryProvider()
     });
     //$zo = $("#zo");
 
