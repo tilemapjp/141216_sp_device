@@ -20,6 +20,7 @@
     var gn = new GyroNorm();
 
     gn.init().then(function(){
+      gn.setHeadDirection();
       gn.start(deviceorientationHandler);//function(data){
         // Process:
         // data.do.alpha    ( deviceorientation event alpha value )
@@ -63,7 +64,7 @@
 
     var heading = compassHeading( alpha, beta, gamma );
 
-    var html = "gyronorm<br>";
+    var html = "setHeadDirection<br>";
     html += "X回転 : " + beta + "<br>";
     html += "Y回転 : " + gamma + "<br>";
     html += 'Z回転 : ' + alpha + "<br>";
