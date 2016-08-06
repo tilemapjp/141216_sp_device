@@ -62,13 +62,13 @@
     // Z軸
     var alpha = event.alpha;
 
-    //var heading = compassHeading( alpha, beta, gamma );
+    var heading = compassHeading( alpha, beta, gamma );
 
-    var html = "deleteHeadDir<br>";
+    var html = "reuseFunction<br>";
     html += "X回転 : " + beta + "<br>";
     html += "Y回転 : " + gamma + "<br>";
     html += 'Z回転 : ' + alpha + "<br>";
-    //html += '方角 : ' + heading + "<br>";
+    html += '方角 : ' + heading + "<br>";
     $("#debug").html(html);
 
     //$zo.css({
