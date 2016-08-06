@@ -19,7 +19,14 @@
 
     var gn = new GyroNorm();
 
-    gn.init().then(function(){
+    gn.init({
+      frequency:50,                   // ( How often the object sends the values - milliseconds )
+      gravityNormalized:true,         // ( If the garvity related values to be normalized )
+      orientationBase:GyroNorm.WORLD, // ( Can be GyroNorm.GAME or GyroNorm.WORLD. gn.GAME returns orientation values with respect to the head direction of the device. gn.WORLD returns the orientation values with respect to the actual north direction of the world. )
+      decimalCount:2,                 // ( How many digits after the decimal point will there be in the return values )
+      logger:null,                    // ( Function to be called to log messages from gyronorm.js )
+      screenAdjusted:false            // ( If set to true it will return screen adjusted values. )
+    }).then(function(){
       //gn.setHeadDirection();
       gn.start(deviceorientationHandler);//function(data){
         // Process:
@@ -64,7 +71,7 @@
 
     var heading = compassHeading( alpha, beta, gamma );
 
-    var html = "reuseFunction<br>";
+    var html = "setOption<br>";
     html += "X回転 : " + beta + "<br>";
     html += "Y回転 : " + gamma + "<br>";
     html += 'Z回転 : ' + alpha + "<br>";
