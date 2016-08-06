@@ -20,7 +20,7 @@
     var gn = new GyroNorm();
 
     gn.init().then(function(){
-      gn.setHeadDirection();
+      //gn.setHeadDirection();
       gn.start(deviceorientationHandler);//function(data){
         // Process:
         // data.do.alpha    ( deviceorientation event alpha value )
@@ -62,13 +62,13 @@
     // Z軸
     var alpha = event.alpha;
 
-    var heading = compassHeading( alpha, beta, gamma );
+    //var heading = compassHeading( alpha, beta, gamma );
 
-    var html = "setHeadDirection<br>";
+    var html = "deleteHeadDir<br>";
     html += "X回転 : " + beta + "<br>";
     html += "Y回転 : " + gamma + "<br>";
     html += 'Z回転 : ' + alpha + "<br>";
-    html += '方角 : ' + heading + "<br>";
+    //html += '方角 : ' + heading + "<br>";
     $("#debug").html(html);
 
     //$zo.css({
