@@ -95,11 +95,11 @@
     var camXY = camEuler.toVector3();
 
     //方角
-    var heading = (camXY.z + Math.PI) / degtorad;
+    var heading = -1 * (camXY.z + Math.PI) / degtorad;
     //俯角仰角
-    var pitch   = -camXY.x / degtorad;
+    var pitch   = -1 * camXY.x / degtorad;
     //水平角
-    var roll    = (camXY.y + Math.PI) / degtorad;
+    var roll    = -1 * camXY.y / degtorad;
 
     var html = "α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
     html += "方角 : "   + heading + "<br>";
