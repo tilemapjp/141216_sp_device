@@ -67,7 +67,7 @@
     // Y軸
     var gamma = event.gamma;
     // Z軸
-    var alpha = Math.round(event.alpha * 100) / 100;
+    var alpha = event.alpha;
 
     /*//方角
     var heading = 360 - alpha;
@@ -81,13 +81,23 @@
     //水平角
     var roll    = gamma;*/
 
-    var devEuler = new THREE.Euler( beta, gamma, alpha, 'ZXY' );
+
+    var devEuler = new THREE.Euler( beta * degtorad, gamma * degtorad, alpha * degtorad, 'ZXY' );
     var devXY = devEuler.toVector3();
+    var devM4 = new THREE.Matrix4();
+    devM4.setFromEuler(devEuler);
+    var rotM4 = new THREE.Matrix4();
+    rotM4.makeRotationX( Math.PI / 2 );
+    var camM4 = new THREE.Matrix4();
+    camM4.multiplyMatrices( devM4, rotM4 );
+    var camEuler = new THREE.Euler();
+    camEuler.setFromRotationMatrix ( camM4, 'ZXY' );
+    var camXY = camEuler.toVector3();
 
     var html = "α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
-    html += "方角 : "   + devXY.x + "<br>";
-    html += "俯仰角 : " + devXY.y + "<br>";
-    html += "水平角 : " + devXY.z;
+    html += "方角 : "   + camXY.x + "<br>";
+    html += "俯仰角 : " + camXY.y + "<br>";
+    html += "水平角 : " + camXY.z;
     $("#debug").html(html);
 
     //$zo.css({
