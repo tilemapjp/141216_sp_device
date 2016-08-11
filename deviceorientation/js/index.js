@@ -67,7 +67,7 @@
     // Y軸
     var gamma = event.gamma;
     // Z軸
-    var alpha = event.alpha;
+    var alpha = Math.round(event.alpha * 100) / 100;
 
     //方角
     var heading = 360 - alpha;
@@ -81,7 +81,7 @@
     //水平角
     var roll    = gamma;
 
-    var html = "setOption<br>";
+    var html = "α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
     html += "方角 : "   + heading + "<br>";
     html += "俯仰角 : " + pitch + "<br>";
     html += "水平角 : " + roll;
