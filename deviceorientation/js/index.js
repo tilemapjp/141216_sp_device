@@ -69,13 +69,22 @@
     // Z軸
     var alpha = event.alpha;
 
-    var heading = compassHeading( alpha, beta, gamma );
+    //方角
+    var heading = 360 - alpha;
+    //俯角仰角
+    var pitch   = beta - 90;
+    if (pitch < 180) {
+      pitch = pitch + 360;
+      heading = heading - 180;
+      if (heading < 360) heading = heading + 360;
+    }
+    //水平角
+    var roll    = gamma;
 
     var html = "setOption<br>";
-    html += "X回転 : " + beta + "<br>";
-    html += "Y回転 : " + gamma + "<br>";
-    html += 'Z回転 : ' + alpha + "<br>";
-    html += '方角 : ' + heading + "<br>";
+    html += "方角 : "   + heading + "<br>";
+    html += "俯仰角 : " + pitch + "<br>";
+    html += "水平角 : " + roll;
     $("#debug").html(html);
 
     //$zo.css({
@@ -85,7 +94,7 @@
   }
 var degtorad = Math.PI / 180; // Degree-to-Radian conversion
 
-function compassHeading( alpha, beta, gamma ) {
+/*function compassHeading( alpha, beta, gamma ) {
 
   var _x = beta  ? beta  * degtorad : 0; // beta value
   var _y = gamma ? gamma * degtorad : 0; // gamma value
@@ -114,6 +123,6 @@ function compassHeading( alpha, beta, gamma ) {
 
   return compassHeading * ( 180 / Math.PI ); // Compass Heading (in degrees)
 
-}
+}*/
 
 })();
