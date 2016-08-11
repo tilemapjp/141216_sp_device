@@ -73,7 +73,7 @@
     var heading = 360 - alpha;
     //俯角仰角
     var pitch   = beta - 90;
-    if (pitch < 180) {
+    if (pitch < -180) {
       pitch = pitch + 360;
       heading = heading - 180;
       if (heading < 360) heading = heading + 360;
