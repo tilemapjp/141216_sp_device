@@ -76,7 +76,7 @@
     if (pitch < -180) {
       pitch = pitch + 360;
       heading = heading - 180;
-      if (heading < 360) heading = heading + 360;
+      if (heading < 0) heading = heading + 360;
     }
     //水平角
     var roll    = gamma;
