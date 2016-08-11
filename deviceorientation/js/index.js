@@ -94,10 +94,17 @@
     camEuler.setFromRotationMatrix ( camM4, 'ZXY' );
     var camXY = camEuler.toVector3();
 
+    //方角
+    var heading = (camXY.z + Math.PI) / degtorad;
+    //俯角仰角
+    var pitch   = -camXY.x / degtorad;
+    //水平角
+    var roll    = (camXY.y + Math.PI) / degtorad;
+
     var html = "α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
-    html += "方角 : "   + camXY.x + "<br>";
-    html += "俯仰角 : " + camXY.y + "<br>";
-    html += "水平角 : " + camXY.z;
+    html += "方角 : "   + heading + "<br>";
+    html += "俯仰角 : " + pitch + "<br>";
+    html += "水平角 : " + roll;
     $("#debug").html(html);
 
     //$zo.css({
