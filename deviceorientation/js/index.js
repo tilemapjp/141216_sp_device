@@ -100,6 +100,7 @@
     var pitch   = -camXY.x / degtorad;
     //水平角
     var roll    = (Math.PI - camXY.y) / degtorad;
+    if (roll > 180) roll = roll - 360;
 
     var html = "α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
     html += "方角 : "   + heading + "<br>";
