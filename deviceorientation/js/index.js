@@ -25,9 +25,9 @@
     });
     //$zo = $("#zo");
 
-    var gn = new GyroNorm();
+    //var gn = new GyroNorm();
 
-    gn.init({
+    /*gn.init({
       frequency:50,                   // ( How often the object sends the values - milliseconds )
       //gravityNormalized:true,         // ( If the garvity related values to be normalized )
       orientationBase:GyroNorm.WORLD, // ( Can be GyroNorm.GAME or GyroNorm.WORLD. gn.GAME returns orientation values with respect to the head direction of the device. gn.WORLD returns the orientation values with respect to the actual north direction of the world. )
@@ -57,9 +57,9 @@
       //});
     }).catch(function(e){
       // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
-    });
+    });*/
 
-    //window.addEventListener("deviceorientation", deviceorientationHandler);
+    window.addEventListener("deviceorientation", deviceorientationHandler);
 
   });
 
@@ -67,8 +67,9 @@
    *
    * @param event
    */
-  function deviceorientationHandler(data) {
-    var event = data.do;
+  function deviceorientationHandler(event) {
+  //function deviceorientationHandler(data) {
+  //  var event = data.do;
     //ジャイロセンサー情報取得
     // X軸
     var beta = event.beta;
