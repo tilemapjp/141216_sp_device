@@ -69,7 +69,7 @@
     // Z軸
     var alpha = Math.round(event.alpha * 100) / 100;
 
-    //方角
+    /*//方角
     var heading = 360 - alpha;
     //俯角仰角
     var pitch   = beta - 90;
@@ -79,12 +79,18 @@
       if (heading < 0) heading = heading + 360;
     }
     //水平角
-    var roll    = gamma;
+    var roll    = gamma;*/
+
+    var devEuler = new THREE.Euler( beta, gamma, alpha, 'ZXY' );
+    var devXY = devEuler.toVector3();
+    b.applyEuler(a);
+
+
 
     var html = "α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
-    html += "方角 : "   + heading + "<br>";
-    html += "俯仰角 : " + pitch + "<br>";
-    html += "水平角 : " + roll;
+    html += "方角 : "   + devXY.x + "<br>";
+    html += "俯仰角 : " + devXY.y + "<br>";
+    html += "水平角 : " + devXY.z;
     $("#debug").html(html);
 
     //$zo.css({
