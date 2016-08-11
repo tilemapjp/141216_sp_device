@@ -1,9 +1,17 @@
 (function () {
 
   //var $zo;
+  var portrait;
+  var landscape;
 
   $(function () {
     "use strict";
+
+    if (window.matchMedia("(orientation: portrait)").matches) {
+      portrait = true;
+    } else if (window.matchMedia("(orientation: landscape)").matches) {
+      landscape = true;
+    }
 
     var viewer = new Cesium.Viewer("cesium", {
       timeline : false,
@@ -105,7 +113,8 @@
     var html = "α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
     html += "方角 : "   + heading + "<br>";
     html += "俯仰角 : " + pitch + "<br>";
-    html += "水平角 : " + roll;
+    html += "水平角 : " + roll + "<br>";
+    html += "Orient.: " + (portrait ? "portrait" : landscape ? "landscape" : "unknown");
     $("#debug").html(html);
 
     //$zo.css({
