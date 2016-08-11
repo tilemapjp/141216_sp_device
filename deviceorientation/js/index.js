@@ -111,7 +111,7 @@
     var roll    = (Math.PI - camXY.y) / degtorad;
     if (roll > 180) roll = roll - 360;
 
-    var html = "α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
+    var html = "0.613 α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
     html += "方角 : "   + heading + "<br>";
     html += "俯仰角 : " + pitch + "<br>";
     html += "水平角 : " + roll + "<br>";
