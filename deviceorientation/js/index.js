@@ -25,18 +25,19 @@
     });
     //$zo = $("#zo");
 
-    //var gn = new GyroNorm();
+    if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf( 'iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0) {
+      var gn = new GyroNorm();
 
-    /*gn.init({
-      frequency:50,                   // ( How often the object sends the values - milliseconds )
-      //gravityNormalized:true,         // ( If the garvity related values to be normalized )
-      orientationBase:GyroNorm.WORLD, // ( Can be GyroNorm.GAME or GyroNorm.WORLD. gn.GAME returns orientation values with respect to the head direction of the device. gn.WORLD returns the orientation values with respect to the actual north direction of the world. )
-      decimalCount:2,                 // ( How many digits after the decimal point will there be in the return values )
-      logger:null,                    // ( Function to be called to log messages from gyronorm.js )
-      //screenAdjusted:true            // ( If set to true it will return screen adjusted values. )
-    }).then(function(){
-      //gn.setHeadDirection();
-      gn.start(deviceorientationHandler);//function(data){
+      gn.init({
+        frequency:50,                   // ( How often the object sends the values - milliseconds )
+        //gravityNormalized:true,         // ( If the garvity related values to be normalized )
+        orientationBase:GyroNorm.WORLD, // ( Can be GyroNorm.GAME or GyroNorm.WORLD. gn.GAME returns orientation values with respect to the head direction of the device. gn.WORLD returns the orientation values with respect to the actual north direction of the world. )
+        //decimalCount:2,                 // ( How many digits after the decimal point will there be in the return values )
+        logger:null,                    // ( Function to be called to log messages from gyronorm.js )
+        //screenAdjusted:true            // ( If set to true it will return screen adjusted values. )
+      }).then(function(){
+        //gn.setHeadDirection();
+        gn.start(deviceorientationHandler);//function(data){
         // Process:
         // data.do.alpha    ( deviceorientation event alpha value )
         // data.do.beta     ( deviceorientation event beta value )
@@ -54,13 +55,13 @@
         // data.dm.alpha    ( devicemotion event rotationRate alpha value )
         // data.dm.beta     ( devicemotion event rotationRate beta value )
         // data.dm.gamma    ( devicemotion event rotationRate gamma value )
-      //});
-    }).catch(function(e){
-      // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
-    });*/
-
-    window.addEventListener("deviceorientation", deviceorientationHandler);
-
+        //});
+      }).catch(function(e){
+        // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
+      });
+    } else {
+      window.addEventListener("deviceorientation", deviceorientationHandler);
+    }
   });
 
   /**
@@ -68,8 +69,7 @@
    * @param event
    */
   function deviceorientationHandler(event) {
-  //function deviceorientationHandler(data) {
-  //  var event = data.do;
+    if (event.do) event = event.do;
     //ジャイロセンサー情報取得
     // X軸
     var beta = event.beta;
