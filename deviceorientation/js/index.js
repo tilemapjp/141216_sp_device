@@ -85,7 +85,7 @@
     var devEuler = new THREE.Euler( beta * degtorad, gamma * degtorad, alpha * degtorad, 'ZXY' );
     var devXY = devEuler.toVector3();
     var devM4 = new THREE.Matrix4();
-    devM4.setFromEuler(devEuler);
+    devM4.makeRotationFromEuler(devEuler);
     var rotM4 = new THREE.Matrix4();
     rotM4.makeRotationX( Math.PI / 2 );
     var camM4 = new THREE.Matrix4();
