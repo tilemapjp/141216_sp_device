@@ -83,9 +83,6 @@
 
     var devEuler = new THREE.Euler( beta, gamma, alpha, 'ZXY' );
     var devXY = devEuler.toVector3();
-    b.applyEuler(a);
-
-
 
     var html = "α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
     html += "方角 : "   + devXY.x + "<br>";
