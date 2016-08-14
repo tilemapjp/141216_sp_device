@@ -25,7 +25,7 @@
     });
     //$zo = $("#zo");
 
-    //if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf( 'iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0) {
+    if ((navigator.userAgent.indexOf('iPhone') > 0 && navigator.userAgent.indexOf( 'iPad') == -1) || navigator.userAgent.indexOf('iPod') > 0) {
       var gn = new GyroNorm();
 
       gn.init({
@@ -59,9 +59,9 @@
       }).catch(function(e){
         // Catch if the DeviceOrientation or DeviceMotion is not supported by the browser or device
       });
-    /*} else {
+    } else {
       window.addEventListener("deviceorientation", deviceorientationHandler);
-    }*/
+    }
   });
 
   /**
@@ -115,7 +115,7 @@
     var roll    = (Math.PI - camXY.y) / degtorad;
     if (roll > 180) roll = roll - 360;
 
-    var html = "0.615 α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
+    var html = "0.616 α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
     html += "方角 : "   + heading + "<br>";
     html += "俯仰角 : " + pitch + "<br>";
     html += "水平角 : " + roll + "<br>";
