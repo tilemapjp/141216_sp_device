@@ -77,6 +77,10 @@
     var gamma = event.gamma;
     // Z軸
     var alpha = event.alpha;
+    if (navigator.userAgent.indexOf('Android') > 0) {
+      alpha = alpha - 90.0;
+      if (alpha < 0.0) alpha = alpha + 360.0;
+    }
 
     /*//方角
     var heading = 360 - alpha;
@@ -111,7 +115,7 @@
     var roll    = (Math.PI - camXY.y) / degtorad;
     if (roll > 180) roll = roll - 360;
 
-    var html = "0.614 α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
+    var html = "0.615 α:" + alpha + ",β:" + beta + ",γ:" + gamma + "<br>";
     html += "方角 : "   + heading + "<br>";
     html += "俯仰角 : " + pitch + "<br>";
     html += "水平角 : " + roll + "<br>";
